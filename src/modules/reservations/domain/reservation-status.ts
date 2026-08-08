@@ -7,7 +7,10 @@ export const reservationStatuses = [
 
 export type ReservationStatus = (typeof reservationStatuses)[number];
 
-const allowedTransitions: Record<ReservationStatus, readonly ReservationStatus[]> = {
+const allowedTransitions: Record<
+  ReservationStatus,
+  readonly ReservationStatus[]
+> = {
   draft: ["pending_confirmation", "cancelled"],
   pending_confirmation: ["confirmed", "cancelled"],
   confirmed: ["cancelled"],

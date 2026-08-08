@@ -19,15 +19,15 @@ Nunca expongas `SUPABASE_SERVICE_ROLE_KEY` ni le asignes el prefijo `NEXT_PUBLIC
 
 ## Comandos
 
-| Comando | Uso |
-| --- | --- |
-| `pnpm dev` | Desarrollo local |
-| `pnpm lint` | Reglas de lint |
-| `pnpm format` | Aplicar formato |
-| `pnpm format:check` | Verificar formato |
-| `pnpm typecheck` | Verificación TypeScript |
-| `pnpm test` | Pruebas unitarias |
-| `pnpm build` | Build de producción |
+| Comando             | Uso                     |
+| ------------------- | ----------------------- |
+| `pnpm dev`          | Desarrollo local        |
+| `pnpm lint`         | Reglas de lint          |
+| `pnpm format`       | Aplicar formato         |
+| `pnpm format:check` | Verificar formato       |
+| `pnpm typecheck`    | Verificación TypeScript |
+| `pnpm test`         | Pruebas unitarias       |
+| `pnpm build`        | Build de producción     |
 
 ## Estructura
 

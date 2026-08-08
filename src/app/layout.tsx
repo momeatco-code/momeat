@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import { Geist } from "next/font/google";
 import "./globals.css";
 
@@ -12,7 +13,9 @@ export const metadata: Metadata = {
   description: "Reservas programadas de alimentación.",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: Readonly<{ children: ReactNode }>) {
   return (
     <html lang="es" className={`${geist.variable} h-full`}>
       <body className="min-h-full bg-stone-50 font-sans text-stone-950 antialiased">
