@@ -1,3 +1,5 @@
+import { IntakeSync } from "@/components/intake-sync";
+
 const steps = [
   "Elige qué quieres comer",
   "Selecciona una opción",
@@ -19,6 +21,7 @@ const menuModes = [
 export default function NewReservationPage() {
   return (
     <main className="min-h-screen bg-[#fbf7f1] text-zinc-950">
+      <IntakeSync />
       <div className="mx-auto min-h-screen w-full max-w-5xl px-6 py-8">
         <header className="flex flex-col gap-4 border-b border-zinc-200 pb-6 md:flex-row md:items-center md:justify-between">
           <div>

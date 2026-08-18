@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { Logo } from "@/components/logo";
 
 export default function EntryPortal() {
   const router = useRouter();
@@ -8,9 +9,7 @@ export default function EntryPortal() {
   return (
     <main className="min-h-screen bg-[#fbf7f1] text-zinc-950">
       <div className="mx-auto flex min-h-screen w-full max-w-md flex-col justify-center px-6 py-8">
-        <p className="text-sm font-semibold uppercase tracking-[0.35em] text-amber-700">
-          MomEat
-        </p>
+        <Logo height={32} animate />
 
         <h1 className="mt-4 text-3xl font-semibold leading-tight">
           Resuélvelo una vez,

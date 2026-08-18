@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { Geist } from "next/font/google";
+import { Poppins, Inter } from "next/font/google";
 import "./globals.css";
 
-const geist = Geist({
-  variable: "--font-geist",
+// Manual de marca: Poppins Bold/SemiBold para títulos, Inter para texto.
+const poppins = Poppins({
+  variable: "--font-heading",
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+});
+
+const inter = Inter({
+  variable: "--font-body",
   subsets: ["latin"],
 });
 
@@ -17,8 +24,11 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="es" className={`${geist.variable} h-full`}>
-      <body className="min-h-full bg-stone-50 font-sans text-stone-950 antialiased">
+    <html
+      lang="es"
+      className={`${poppins.variable} ${inter.variable} h-full`}
+    >
+      <body className="min-h-full bg-cream font-body text-charcoal antialiased">
         {children}
       </body>
     </html>

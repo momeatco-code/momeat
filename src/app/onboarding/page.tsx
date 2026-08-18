@@ -6,28 +6,37 @@ import {
   saveIntakeAnswer,
   type QuestionSlug,
 } from "@/modules/identity/onboarding-storage";
+import { Logo } from "@/components/logo";
 
 type Question = {
   slug: QuestionSlug;
   title: string;
-  placeholder: string;
+  microcopy: string;
+  example: string;
 };
 
 const QUESTIONS: Question[] = [
   {
     slug: "who_are_we_caring_for",
-    title: "¿Para quién estás resolviendo la comida?",
-    placeholder: "Yo solo, mi pareja, toda la familia...",
+    title: "¿Para quiénes vamos a tener la comida lista?",
+    microcopy: "Cuéntanos si es solo para ti, para tu pareja o para tu equipo.",
+    example:
+      "Soy yo sola, trabajo desde casa y necesito almuerzos saludables.",
   },
   {
     slug: "tastes_and_restrictions",
-    title: "Cuéntanos qué le gusta y qué no",
-    placeholder: "Alergias, lo que no puede faltar, lo que prefieres evitar...",
+    title: "¿Qué comida disfrutas más y qué ingredientes debemos evitar?",
+    microcopy:
+      "Menciona tus platos favoritos, dietas o intolerancias. Nosotros nos encargamos para que no tengas que pensarlo.",
+    example:
+      "Me encanta la comida casera y alta en proteína. Por favor, nada de cebolla ni lácteos.",
   },
   {
     slug: "days_and_logistics",
-    title: "¿Qué días necesitas resolver?",
-    placeholder: "Ej: de lunes a viernes, solo almuerzos, desde la próxima semana...",
+    title: "¿Para cuántos días quieres que dejemos esto resuelto?",
+    microcopy:
+      "Indícanos el tiempo. Los detalles exactos de entrega los confirmaremos en el siguiente paso.",
+    example: "Para los próximos 5 días, de lunes a viernes.",
   },
 ];
 
@@ -63,9 +72,7 @@ export default function OnboardingPage() {
   return (
     <main className="min-h-screen bg-[#fbf7f1] text-zinc-950">
       <div className="mx-auto flex min-h-screen w-full max-w-md flex-col justify-center px-6 py-8">
-        <p className="text-sm font-semibold uppercase tracking-[0.35em] text-amber-700">
-          MomEat
-        </p>
+        <Logo height={32} animate />
 
         {/* Barra de progreso — efecto Zeigarnik: dejar visible cuánto falta
             aumenta la intención de completar el ciclo. */}
@@ -92,8 +99,7 @@ export default function OnboardingPage() {
               {currentQuestion.title}
             </h1>
             <p className="mt-2 text-sm text-zinc-600">
-              Puedes cambiar cualquier cosa más adelante — esto solo nos
-              ayuda a armar un primer borrador para ti.
+              {currentQuestion.microcopy}
             </p>
 
             <form onSubmit={handleNext} className="mt-8 flex flex-col gap-4">
@@ -101,7 +107,7 @@ export default function OnboardingPage() {
                 required
                 autoFocus
                 rows={4}
-                placeholder={currentQuestion.placeholder}
+                placeholder={`Ej: "${currentQuestion.example}"`}
                 value={currentText}
                 onChange={(e) => setCurrentText(e.target.value)}
                 className="resize-none rounded-xl border border-zinc-300 bg-white px-4 py-3 text-base outline-none focus:border-amber-700"

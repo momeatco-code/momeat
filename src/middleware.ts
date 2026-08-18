@@ -51,6 +51,11 @@ export async function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    "/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)",
+    // /auth/confirm queda excluido a propósito: ese endpoint canjea el
+    // code PKCE por sesión, y necesita manejar sus propias cookies sin
+    // que este middleware llame a getUser() primero — ese refresco,
+    // al no haber sesión válida todavía, terminaba invalidando la
+    // cookie del verificador antes de que la ruta pudiera leerla.
+    "/((?!_next/static|_next/image|favicon.ico|auth/confirm|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)",
   ],
 };
